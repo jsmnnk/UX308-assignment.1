@@ -10,24 +10,26 @@ export function clearInput(){
 
 function welcoming() {
   let aReturn = [];
-  currentState = reserving;
-  aReturn.push("Welcome to Rich's Acton Rapid Test.");
-  aReturn.push("Would you like to reserve a rapid test kit?");
+  currentState = ordering;
+  aReturn.push("Welcome to Jasmine's Pizza!");
+  aReturn.push("Would you like to order a pizza?");
   return aReturn;
 }
 
-function reserving(sInput) {
+function ordering(sInput) {
   let aReturn = [];
-  currentState = welcoming
+  currentState = welcoming;
+
   if (sInput.toLowerCase().startsWith('y')) {
-    aReturn.push(`Your rapid test is reserved`);
     let d = new Date();
-    d.setMinutes(d.getMinutes() + 120);
-    aReturn.push(`Please pick it up at 123 Tidy St., Acton before ${d.toTimeString()}`);
+    d.setMinutes(d.getMinutes() + 30);
+
+    aReturn.push("Your pizza order has been placed!");
+    aReturn.push(`It will be ready for pickup at 456 Slice Ave before ${d.toTimeString()}`);
   } else {
-    aReturn.push("Thanks for trying our reservation system");
-    aReturn.push("Maybe next time");
+    aReturn.push("No problem!");
+    aReturn.push("Come back anytime if you're hungry 🍕");
   }
+
   return aReturn;
 }
-
